@@ -1,0 +1,23 @@
+<%
+  var main = String(theme.main_url || '').replace(/\/+$/, '')
+  var news = String(theme.news_url || '').replace(/\/+$/, '')
+%>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="brand-text"><%= theme.brand || 'EggyUI' %></span>
+      <span class="footer-copy">© EggyUI · 本站为粉丝二次创作，非商业用途</span>
+    </div>
+    <div class="footer-links">
+      <a href="<%- main + '/' %>">主站首页</a>
+      <a href="<%- main + '/download' %>">下载</a>
+      <a href="<%- news + '/' %>">新闻</a>
+      <a href="<%- main + '/about' %>">关于</a>
+    </div>
+    <div class="footer-ext">
+      <% if (theme.rss !== false) { %><a href="<%- url_for('atom.xml') %>">RSS</a><% } %>
+      <% if (theme.github) { %><a href="<%- theme.github %>" target="_blank" rel="noopener">GitHub</a><% } %>
+      <% if (theme.gitcode) { %><a href="<%- theme.gitcode %>" target="_blank" rel="noopener">GitCode</a><% } %>
+    </div>
+  </div>
+</footer>

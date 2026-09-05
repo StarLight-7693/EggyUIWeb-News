@@ -1,0 +1,45 @@
+// ============================================================
+// eggyui 主题 · 变量（对齐主站 EggyUIWeb-Vue3 的 _variables）
+// ============================================================
+
+// 字体（CDN：Segoe Pro + Noto Sans SC）
+$font-ui: 'Segoe Pro Display', 'Segoe Pro', 'Segoe UI', 'Noto Sans SC',
+  'Microsoft YaHei', system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+
+// 新闻页背景图（site source/images）
+$bg-cover: '/images/news_bg.jpg';
+
+// ---- 新闻（原站 news.style.css）----
+$ink: #111827;
+$muted: #4b5563;
+$faint: #9ca3af;
+$accent: #4f46e5;
+$accent-2: #4a6cf7;
+$card-bg: rgba(255, 255, 255, 0.85);
+$card-bg-hover: rgba(255, 255, 255, 0.96);
+
+// ---- 顶栏（原站 all.main.style.css / 主站 header）----
+$hdr-bg: rgba(255, 255, 255, 0.75);
+$hdr-bg-scrolled: rgba(255, 255, 255, 0.92);
+$hdr-text: #0f172a;
+$hdr-muted: #475569;
+$hdr-faint: #94a3b8;
+$hdr-indigo: #4f46e5;
+$hdr-violet: #7c3aed;
+$hdr-pink: #ec4899;
+$hdr-btn-grad: linear-gradient(135deg, #4f46e5, #7c3aed);
+$hdr-load-grad: linear-gradient(90deg, #4f46e5, #7c3aed, #ec4899);
+
+// ---- 尺寸 / 断点 ----
+$header-h: 72px;
+$header-h-md: 64px;
+$header-h-xs: 60px;
+$container-max: 960px;
+
+$bp-lg: 1024px;
+$bp-md: 820px;
+$bp-sm: 768px;
+$bp-xs: 640px;
+$bp-2xs: 600px;
+$bp-3xs: 500px;
+$bp-4xs: 400px;

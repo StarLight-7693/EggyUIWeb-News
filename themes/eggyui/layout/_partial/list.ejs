@@ -1,0 +1,18 @@
+<%
+  var title = (typeof listTitle !== 'undefined' && listTitle) ? listTitle : (page.title || '文章')
+  var listPosts = (typeof listPosts !== 'undefined') ? listPosts : page.posts
+%>
+<div class="page container">
+  <h1 class="page-title"><%= title %></h1>
+  <ul class="post-list">
+    <% listPosts.each(function (p) { %>
+      <li class="post-row">
+        <a class="row-link" href="<%- url_for(p.path) %>">
+          <span class="row-title"><%= p.title %></span>
+          <time class="row-date"><%= date(p.date, config.date_format) %></time>
+        </a>
+      </li>
+    <% }) %>
+  </ul>
+  <%- partial('_partial/pagination') %>
+</div>

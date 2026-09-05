@@ -1,0 +1,20 @@
+# ============================================================
+# eggyui 主题配置（无缝衔接主站 EggyUIWeb-Vue3 SPA）
+# ============================================================
+
+# 主站 / 新闻站地址（用于跨站导航）
+main_url: https://eggyui.skystarlight.top
+news_url: https://news.eggyui.skystarlight.top
+
+# 品牌
+brand: EggyUI
+logo: /images/logo.png
+favicon: /images/favicon.png
+
+# 订阅 / 社交（页脚、首页 chip 等）
+gitcode: https://gitcode.com/eggy-ui-team
+github: https://github.com/CN-RBL/EggyUI-RE
+qq_group: '1079576546'
+
+# 卡片无封面时使用的默认图
+default_cover: /images/default_cover.png

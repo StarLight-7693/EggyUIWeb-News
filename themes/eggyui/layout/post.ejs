@@ -1,0 +1,22 @@
+<article class="page container single">
+  <a class="back-link" href="<%- url_for('') %>">← 返回新闻</a>
+  <h1 class="post-title"><%= page.title %></h1>
+  <div class="post-meta">
+    <time datetime="<%= date(page.date, 'YYYY-MM-DD') %>"><%= date(page.date, config.date_format) %></time>
+    <% if (page.categories && page.categories.length) { %>
+      <% page.categories.each(function (c) { %>
+        <a class="tag" href="<%- url_for(c.path) %>"><%= c.name %></a>
+      <% }) %>
+    <% } %>
+    <% if (page.tags && page.tags.length) { %>
+      <% page.tags.each(function (t) { %>
+        <a class="tag" href="<%- url_for(t.path) %>">#<%= t.name %></a>
+      <% }) %>
+    <% } %>
+  </div>
+  <div class="post-content"><%- page.content %></div>
+  <nav class="post-nav">
+    <% if (page.prev) { %><a class="prev" href="<%- url_for(page.prev.path) %>">← <%= page.prev.title %></a><% } else { %><span></span><% } %>
+    <% if (page.next) { %><a class="next" href="<%- url_for(page.next.path) %>"><%= page.next.title %> →</a><% } %>
+  </nav>
+</article>

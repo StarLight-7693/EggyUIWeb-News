@@ -1,0 +1,38 @@
+<%
+  var defaultCover = url_for(theme.default_cover || 'images/default_cover.png')
+%>
+<div class="page news-home">
+  <div class="container">
+    <div class="list-utils">
+      <h1 class="list-title">新闻</h1>
+      <nav class="chips">
+        <a class="chip" href="<%- url_for('archives/') %>">归档</a>
+        <a class="chip" href="<%- url_for('categories/') %>">分类</a>
+        <a class="chip" href="<%- url_for('tags/') %>">标签</a>
+        <a class="chip" href="<%- url_for('atom.xml') %>">RSS</a>
+      </nav>
+    </div>
+
+    <div class="card-grid">
+      <% page.posts.each(function (post) { %>
+        <a class="card" href="<%- url_for(post.path) %>">
+          <div class="card-cover">
+            <img src="<%- post.cover || defaultCover %>" alt="<%- post.title %>" loading="lazy" />
+          </div>
+          <div class="card-body">
+            <div class="card-text">
+              <span class="card-title"><%= post.title %></span>
+              <time class="card-date"><%= date(post.date, config.date_format) %></time>
+            </div>
+            <svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14" />
+              <path d="M12 5l7 7-7 7" />
+            </svg>
+          </div>
+        </a>
+      <% }) %>
+    </div>
+
+    <%- partial('_partial/pagination') %>
+  </div>
+</div>

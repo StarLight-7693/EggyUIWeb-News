@@ -1,0 +1,54 @@
+@use '_variables' as *;
+@use '_mixins' as *;
+
+// ============================================================
+// 全局基础
+// ============================================================
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font-ui;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  color: $ink;
+  background-color: #f1ece2;
+  background-image: url($bg-cover);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  // 为固定顶栏预留顶部空间
+  padding: 84px 20px 56px;
+}
+
+svg {
+  vertical-align: middle;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.04);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.18);
+  border-radius: 8px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

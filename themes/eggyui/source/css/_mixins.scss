@@ -1,0 +1,13 @@
+@use '_variables' as *;
+
+@mixin respond-below($bp) {
+  @media (max-width: $bp) {
+    @content;
+  }
+}
+
+@mixin glass($bg: $hdr-bg, $blur: 20px, $saturate: 1.4) {
+  background: $bg;
+  backdrop-filter: blur($blur) saturate($saturate);
+  -webkit-backdrop-filter: blur($blur) saturate($saturate);
+}

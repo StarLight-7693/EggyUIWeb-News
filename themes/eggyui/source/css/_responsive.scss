@@ -1,0 +1,142 @@
+@use '_variables' as *;
+@use '_mixins' as *;
+
+// ============================================================
+// 响应式
+// ============================================================
+
+// 平板及以下（含抽屉导航）
+@include respond-below($bp-md) {
+  .glass-header {
+    padding: 0 1.25rem;
+    height: $header-h-md;
+
+    // 导航折叠为抽屉
+    .nav-links {
+      position: absolute;
+      top: $header-h-md;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(28px) saturate(1.6);
+      -webkit-backdrop-filter: blur(28px) saturate(1.6);
+      padding: 1.25rem 1.5rem 1.75rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: 0 0 24px 24px;
+      gap: 0.2rem;
+      transform: scaleY(0);
+      transform-origin: top center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.08);
+      pointer-events: none;
+
+      &.open {
+        transform: scaleY(1);
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+
+      li a {
+        padding: 0.6rem 1rem;
+        font-size: 1rem;
+        width: 100%;
+        border-radius: 12px;
+      }
+    }
+
+    .hamburger {
+      display: flex;
+    }
+
+    .search-form input {
+      width: 140px;
+      padding-left: 2.4rem;
+
+      &:focus {
+        width: 170px;
+      }
+    }
+
+    .btn-primary {
+      padding: 0.4rem 1rem;
+      font-size: 0.85rem;
+    }
+  }
+
+  body {
+    padding: 72px 16px 44px;
+  }
+
+  .page {
+    padding: 24px 22px;
+  }
+}
+
+// 手机
+@include respond-below($bp-3xs) {
+  .glass-header {
+    padding: 0 1rem;
+    height: $header-h-xs;
+
+    .search-form {
+      display: none; // 搜索收进搜索页；顶栏聚焦核心导航
+    }
+
+    .actions .btn-primary {
+      padding: 0.35rem 0.8rem;
+      font-size: 0.75rem;
+    }
+
+    .brand .brand-text {
+      font-size: 1rem;
+    }
+  }
+
+  body {
+    padding: 64px 12px 36px;
+  }
+
+  .page {
+    padding: 18px 16px;
+  }
+}
+
+// 卡片在窄屏单列
+@include respond-below($bp-xs) {
+  .card-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .card .card-body {
+    padding: 12px 14px 14px;
+  }
+  .card .card-title {
+    font-size: 15px;
+  }
+  .card {
+    animation-duration: 0.5s;
+  }
+
+  .news-home .list-utils {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .post-nav {
+    flex-direction: column;
+    gap: 8px;
+
+    a,
+    a.next {
+      max-width: 100%;
+      text-align: left;
+      margin-left: 0;
+    }
+  }
+}

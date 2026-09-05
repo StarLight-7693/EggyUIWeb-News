@@ -1,0 +1,11 @@
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title><%= page.title ? page.title + ' - ' + config.title : config.title %></title>
+<meta name="description" content="<%= page.description || config.description || '' %>" />
+<meta name="keywords" content="<%= page.keywords || config.keywords || '' %>" />
+<% if (theme.favicon) { %><link rel="icon" type="image/png" href="<%- url_for(theme.favicon) %>" /><% } %>
+<!-- 网站字体（CDN 直引，与主站一致；Cascadia Code 不使用） -->
+<link rel="stylesheet" href="https://fonts.cdnfonts.com/css/segoe-pro" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/noto-sans-sc@37.0.0/noto_sans_sc_medium/css.min.css" />
+<!-- 主题样式（hexo-renderer-dartsass 编译 theme/source/css/main.scss） -->
+<link rel="stylesheet" href="<%- url_for('css/main.css') %>" />

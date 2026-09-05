@@ -1,0 +1,44 @@
+<%
+  var main = String(theme.main_url || '').replace(/\/+$/, '')
+  var brand = theme.brand || config.title || 'EggyUI'
+%>
+<header class="glass-header" id="glassHeader" role="banner">
+  <!-- 顶部加载进度条 -->
+  <div class="loading-bar" id="loadingBar"></div>
+
+  <!-- Logo → 本站首页 -->
+  <a href="/" class="brand" aria-label="EggyUI 新闻">
+    <span class="logo-icon">
+      <img src="<%- url_for(theme.logo) %>" alt="Logo" />
+    </span>
+    <span class="brand-text"><%= brand %></span>
+  </a>
+
+  <!-- 导航：首页/下载/关于指向主站(eggyui)；新闻指向本站 -->
+  <ul class="nav-links" id="navLinks" role="navigation">
+    <li><a href="<%- main + '/' %>">首页</a></li>
+    <li><a href="<%- main + '/download' %>">下载</a></li>
+    <li><a href="/" class="active">新闻</a></li>
+    <li><a href="<%- main + '/about' %>">关于</a></li>
+  </ul>
+
+  <!-- 右侧操作：搜索（本站本地搜索）+ 开始使用（主站下载） -->
+  <div class="actions">
+    <form class="search-form" action="<%- url_for('search/') %>" method="get" role="search">
+      <span class="search-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+      </span>
+      <input type="search" name="q" id="searchInput" placeholder="搜索新闻..." aria-label="搜索新闻" autocomplete="off" />
+    </form>
+
+    <a class="btn btn-primary" href="<%- main + '/download' %>">开始使用</a>
+
+    <!-- 汉堡菜单 -->
+    <button class="hamburger" id="hamburgerBtn" aria-label="切换导航菜单" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
