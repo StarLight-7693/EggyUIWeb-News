@@ -10,25 +10,26 @@ $font-ui: 'Segoe Pro Display', 'Segoe Pro', 'Segoe UI', 'Noto Sans SC',
 $bg-cover: '/images/news_bg.jpg';
 
 // ---- 新闻（原站 news.style.css）----
-$ink: #111827;
-$muted: #4b5563;
-$faint: #9ca3af;
-$accent: #4f46e5;
-$accent-2: #4a6cf7;
+// 主题色对齐 EggyUI 官方展示页（暖黄/橙体系）
+$ink: #1d2129;
+$muted: #4e5969;
+$faint: #86909c;
+$accent: #ff9f1a; // 主橙
+$accent-2: #ffc53d; // 主黄
 $card-bg: rgba(255, 255, 255, 0.85);
 $card-bg-hover: rgba(255, 255, 255, 0.96);
 
-// ---- 顶栏（原站 all.main.style.css / 主站 header）----
+// ---- 顶栏（与主站一致）----
 $hdr-bg: rgba(255, 255, 255, 0.75);
 $hdr-bg-scrolled: rgba(255, 255, 255, 0.92);
-$hdr-text: #0f172a;
-$hdr-muted: #475569;
-$hdr-faint: #94a3b8;
-$hdr-indigo: #4f46e5;
-$hdr-violet: #7c3aed;
-$hdr-pink: #ec4899;
-$hdr-btn-grad: linear-gradient(135deg, #4f46e5, #7c3aed);
-$hdr-load-grad: linear-gradient(90deg, #4f46e5, #7c3aed, #ec4899);
+$hdr-text: #1d2129;
+$hdr-muted: #4e5969;
+$hdr-faint: #86909c;
+$hdr-indigo: #ff9f1a; // 强调橙
+$hdr-violet: #ffc53d; // 主黄
+$hdr-pink: #ff7a00; // 次强调橙
+$hdr-btn-grad: linear-gradient(135deg, #ffc53d, #ff9f1a);
+$hdr-load-grad: linear-gradient(90deg, #ffc53d, #ff9f1a, #ff7a00);
 
 // ---- 尺寸 / 断点 ----
 $header-h: 72px;
