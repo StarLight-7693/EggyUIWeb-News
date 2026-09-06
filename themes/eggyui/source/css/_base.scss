@@ -18,16 +18,22 @@ html {
 body {
   min-height: 100vh;
   color: $ink;
+  // 背景色作为基底（会向 canvas 传播），背景图改由 body::before 伪元素嵌入，
+  // 对齐 StarLight-7693_blog / StarLight-7693.github.io.react 的设定
   background-color: #f1ece2;
-  background-image: url($bg-cover);
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   // 为固定顶栏预留顶部空间
   padding: 84px 20px 56px;
+
+  &::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: url($bg-cover) center/cover no-repeat;
+    z-index: -1;
+    pointer-events: none;
+  }
 }
 
 svg {
