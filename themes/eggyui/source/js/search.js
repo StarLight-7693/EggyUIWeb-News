@@ -25,6 +25,36 @@
       .replace(/"/g, '&quot;')
   }
 
+  function escapeAttr(s) {
+    return escapeHtml(s).replace(/'/g, '&#39;')
+  }
+
+  // 封面：缺省用 default_cover；相对路径统一补站点根
+  function coverOf(c) {
+    if (!c) return '/images/default_cover.png'
+    if (/^(?:\/|https?:|data:)/i.test(c)) return c
+    return '/' + c
+  }
+
+  function cardMarkup(p) {
+    return (
+      '<a class="card" href="/' + p.path + '">' +
+      '<div class="card-cover">' +
+      '<img src="' + escapeAttr(coverOf(p.cover)) + '" alt="' + escapeHtml(p.title) + '" loading="lazy" />' +
+      '</div>' +
+      '<div class="card-body">' +
+      '<div class="card-text">' +
+      '<span class="card-title">' + escapeHtml(p.title) + '</span>' +
+      '<time class="card-date">' + escapeHtml(p.date || '') + '</time>' +
+      '</div>' +
+      '<svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      '<path d="M5 12h14" /><path d="M12 5l7 7-7 7" />' +
+      '</svg>' +
+      '</div>' +
+      '</a>'
+    )
+  }
+
   if (!q) {
     statsEl.textContent = '输入关键词开始搜索新闻。'
     return
@@ -50,23 +80,12 @@
 
       if (hits.length === 0) {
         statsEl.textContent = '未找到与“' + q + '”相关的新闻。'
-        listEl.innerHTML = ''
+        listEl.innerHTML = '<p class="empty-state">未找到相关新闻</p>'
         return
       }
 
       statsEl.textContent = '找到 ' + hits.length + ' 条与“' + q + '”相关的结果'
-      listEl.innerHTML = hits
-        .map(function (p) {
-          return (
-            '<li class="search-item">' +
-            '<a class="row-link" href="/' + p.path + '">' +
-            '<span class="row-title">' + escapeHtml(p.title) + '</span>' +
-            '<time class="row-date">' + escapeHtml(p.date || '') + '</time>' +
-            '</a>' +
-            '</li>'
-          )
-        })
-        .join('')
+      listEl.innerHTML = hits.map(cardMarkup).join('')
     })
     .catch(function (err) {
       statsEl.textContent = '搜索索引加载失败，请稍后重试。'

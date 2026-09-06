@@ -12,9 +12,10 @@ logo: /images/logo.png
 favicon: /images/favicon.png
 
 # 订阅 / 社交（页脚、首页 chip 等）
-gitcode: https://gitcode.com/eggy-ui-team
-github: https://github.com/CN-RBL/EggyUI-RE
-qq_group: '1079576546'
+sociallinks:
+  RSS: atom.xml
+  GitHub: https://github.com/CN-RBL/EggyUI-RE
+  GitCode: https://gitcode.com/eggy-ui-team
 
 # 卡片无封面时使用的默认图
 default_cover: /images/default_cover.png

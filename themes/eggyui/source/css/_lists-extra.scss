@@ -1,0 +1,161 @@
+@use '_variables' as *;
+@use '_mixins' as *;
+
+// ============================================================
+// 列表增强：按月分组 · 分类/标签 chip 云 · 搜索容器 · 404
+// ============================================================
+
+// 空状态
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 26px 20px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px dashed rgba(255, 255, 255, 0.5);
+  border-radius: 16px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+// 归档按月分组
+.month-group {
+  margin-bottom: 30px;
+
+  &:last-child {
+    margin-bottom: 8px;
+  }
+}
+
+.month-title {
+  margin: 0 4px 16px;
+  font-size: 19px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+// 分类 / 标签 chip 云
+.chip-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.cloud-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border-radius: 30px;
+  color: #fff;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: all 0.25s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+    color: #fff;
+  }
+
+  .cloud-name {
+    font-weight: 600;
+    font-size: 15px;
+  }
+  .cloud-count {
+    font-size: 12px;
+    line-height: 1.6;
+    padding: 0 8px;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.18);
+  }
+}
+
+// 搜索页（透明背景版本）
+.news-home {
+  .search-form.big {
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .search-tip {
+    color: rgba(255, 255, 255, 0.92);
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.18);
+    margin: 8px 4px 16px;
+  }
+}
+
+// 404
+.nf-card {
+  max-width: 540px;
+  margin: 4vh auto 0;
+  text-align: center;
+  padding: 52px 34px 40px;
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.05);
+
+  .nf-code {
+    font-size: clamp(64px, 14vw, 120px);
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    background: $hdr-btn-grad;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .nf-msg {
+    color: $muted;
+    margin: 12px 0 24px;
+    font-size: 16px;
+  }
+
+  .nf-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 24px;
+      border-radius: 40px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      color: $hdr-text;
+      background: rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      transition: all 0.25s ease;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.1);
+      }
+
+      &.btn-primary {
+        background: $hdr-btn-grad;
+        border-color: transparent;
+        color: #fff;
+      }
+    }
+  }
+
+  .nf-tip {
+    margin-top: 18px;
+    font-size: 13px;
+    color: $faint;
+  }
+}

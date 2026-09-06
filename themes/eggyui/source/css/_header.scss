@@ -107,11 +107,11 @@
     }
   }
 
-  // 右侧操作
+  // 右侧操作（与主站 SiteHeader 对齐）
   .actions {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.75rem;
     flex-shrink: 0;
   }
 
@@ -124,7 +124,7 @@
 
     .search-icon {
       position: absolute;
-      left: 0.9rem;
+      left: 0.85rem;
       top: 50%;
       transform: translateY(-50%);
       color: $hdr-muted;
@@ -153,7 +153,7 @@
       font-size: 0.9rem;
       color: $hdr-text;
       font-family: inherit;
-      width: 180px;
+      width: 150px;
       outline: none;
       transition: all 0.3s ease;
 
@@ -161,7 +161,7 @@
         color: $hdr-faint;
       }
       &:focus {
-        width: 220px;
+        width: 185px;
         background: rgba(255, 255, 255, 0.8);
         border-color: $hdr-indigo;
         box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);

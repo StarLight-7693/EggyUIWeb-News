@@ -1,1 +1,43 @@
-<%- partial('_partial/list', { listTitle: '归档' }) %>
+<div class="page news-home">
+  <div class="container">
+    <div class="list-utils">
+      <h1 class="list-title">归档</h1>
+      <nav class="chips">
+        <a class="chip" href="<%- url_for('archives/') %>" target="_self">归档</a>
+        <a class="chip" href="<%- url_for('categories/') %>" target="_self">分类</a>
+        <a class="chip" href="<%- url_for('tags/') %>" target="_self">标签</a>
+        <a class="chip" href="<%- url_for('atom.xml') %>" target="_blank">RSS</a>
+      </nav>
+    </div>
+
+    <%
+      // 按月分组
+      var groups = []
+      var indexByKey = {}
+      page.posts.each(function (post) {
+        var key = date(post.date, 'YYYY-MM')
+        if (!Object.prototype.hasOwnProperty.call(indexByKey, key)) {
+          indexByKey[key] = groups.length
+          groups.push({ key: key, posts: [] })
+        }
+        groups[indexByKey[key]].posts.push(post)
+      })
+    %>
+
+    <% if (groups.length === 0) { %>
+      <p class="empty-state">暂无归档内容</p>
+    <% } %>
+
+    <% groups.forEach(function (g) {
+         var parts = String(g.key).split('-')
+         var label = parts[0] + ' 年 ' + parseInt(parts[1], 10) + ' 月'
+    %>
+      <div class="month-group">
+        <h2 class="month-title"><%= label %></h2>
+        <%- partial('_partial/card-grid', { listPosts: g.posts }) %>
+      </div>
+    <% }) %>
+
+    <%- partial('_partial/pagination') %>
+  </div>
+</div>

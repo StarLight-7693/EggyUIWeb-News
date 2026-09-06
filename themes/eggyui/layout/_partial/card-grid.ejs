@@ -1,0 +1,36 @@
+<%
+  // 共享卡片网格：与主页 index 展示完全一致
+  // 用法：partial('_partial/card-grid', { listPosts: page.posts })
+  var posts = (typeof listPosts !== 'undefined') ? listPosts : []
+  var defaultCover = url_for(theme.default_cover || 'images/default_cover.png')
+  var emptyText = (typeof listEmptyText !== 'undefined') ? listEmptyText : '暂无内容'
+%>
+<div class="card-grid">
+  <%
+    function eachPost(cb) {
+      if (posts && typeof posts.each === 'function') posts.each(cb)
+      else if (Array.isArray(posts)) posts.forEach(cb)
+    }
+    var hasAny = false
+    eachPost(function () { hasAny = true })
+    if (!hasAny) { %><p class="empty-state"><%= emptyText %></p><% }
+    else {
+      eachPost(function (post) {
+  %>
+    <a class="card" href="<%- url_for(post.path) %>">
+      <div class="card-cover">
+        <img src="<%- post.cover || defaultCover %>" alt="<%- post.title %>" loading="lazy" />
+      </div>
+      <div class="card-body">
+        <div class="card-text">
+          <span class="card-title"><%= post.title %></span>
+          <time class="card-date"><%= date(post.date, config.date_format) %></time>
+        </div>
+        <svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14" />
+          <path d="M12 5l7 7-7 7" />
+        </svg>
+      </div>
+    </a>
+  <% }) } %>
+</div>

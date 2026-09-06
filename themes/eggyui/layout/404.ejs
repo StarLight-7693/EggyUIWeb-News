@@ -1,0 +1,28 @@
+<div class="page news-home">
+  <div class="container">
+    <div class="nf-card">
+      <h1 class="nf-code">404</h1>
+      <p class="nf-msg">页面不存在或已被移除</p>
+      <div class="nf-actions">
+        <a class="btn btn-primary" href="javascript:history.length > 1 ? history.back() : (location.href = '/')">返回上一页</a>
+        <a class="btn" href="/">返回首页</a>
+      </div>
+      <p class="nf-tip"><span id="nfCount">5</span> 秒后自动返回首页…</p>
+      <noscript><p class="nf-tip">未启用脚本?<a href="/">点此返回首页</a></p></noscript>
+    </div>
+  </div>
+</div>
+<script>
+  (function () {
+    var n = 5
+    var el = document.getElementById('nfCount')
+    var timer = setInterval(function () {
+      n -= 1
+      if (el) el.textContent = n
+      if (n <= 0) {
+        clearInterval(timer)
+        window.location.replace('/')
+      }
+    }, 1000)
+  })()
+</script>

@@ -148,7 +148,7 @@
   display: flex;
   justify-content: space-between;
   gap: 16px;
-  margin-top: 34px;
+  margin-top: 1rem;
   padding-top: 18px;
   border-top: 1px solid rgba(0, 0, 0, 0.06);
 
@@ -211,6 +211,12 @@
       border-bottom: none;
     }
   }
+}
+
+.post-comments {
+  margin-top: 1rem;
+  padding-top: 18px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 // ---- 分页 ----

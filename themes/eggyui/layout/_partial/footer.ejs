@@ -6,7 +6,7 @@
   <div class="footer-inner">
     <div class="footer-brand">
       <span class="brand-text"><%= theme.brand || 'EggyUI' %></span>
-      <span class="footer-copy">© EggyUI · 本站为粉丝二次创作，非商业用途</span>
+      <span class="footer-copy">2026 EggyUI Team · Powered by Hexo</span>
     </div>
     <div class="footer-links">
       <!-- 使用target="_self"来实现无缝跳转 -->
@@ -16,9 +16,11 @@
       <a href="<%- main + '/about' %>" target="_self">关于</a>
     </div>
     <div class="footer-ext">
-      <% if (theme.rss !== false) { %><a href="<%- url_for('atom.xml') %>">RSS</a><% } %>
-      <% if (theme.github) { %><a href="<%- theme.github %>" target="_blank" rel="noopener">GitHub</a><% } %>
-      <% if (theme.gitcode) { %><a href="<%- theme.gitcode %>" target="_blank" rel="noopener">GitCode</a><% } %>
+      <% if (theme.sociallinks) { %>
+        <% Object.keys(theme.sociallinks).forEach(function(key) { %>
+          <a href="<%- url_for(theme.sociallinks[key]) %>" target="_blank"><%= key %></a>
+        <% }) %>
+      <% } %>
     </div>
   </div>
 </footer>

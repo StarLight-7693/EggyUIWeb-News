@@ -1,1 +1,17 @@
-<%- partial('_partial/list', { listTitle: page.tag ? '标签：' + page.tag : '标签' }) %>
+<div class="page news-home">
+  <div class="container">
+    <div class="list-utils">
+      <h1 class="list-title"><%= page.tag ? '标签：' + page.tag : '标签' %></h1>
+      <nav class="chips">
+        <a class="chip" href="<%- url_for('archives/') %>" target="_self">归档</a>
+        <a class="chip" href="<%- url_for('categories/') %>" target="_self">分类</a>
+        <a class="chip" href="<%- url_for('tags/') %>" target="_self">标签</a>
+        <a class="chip" href="<%- url_for('atom.xml') %>" target="_blank">RSS</a>
+      </nav>
+    </div>
+
+    <%- partial('_partial/card-grid', { listPosts: page.posts }) %>
+
+    <%- partial('_partial/pagination') %>
+  </div>
+</div>

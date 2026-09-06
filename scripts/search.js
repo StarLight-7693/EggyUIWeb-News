@@ -20,6 +20,7 @@ hexo.extend.generator.register('search_index', function (locals) {
       path: post.path,
       tags: post.tags ? post.tags.map((t) => t.name) : [],
       categories: post.categories ? post.categories.map((c) => c.name) : [],
+      cover: post.cover || '/images/default_cover.png',
       content: stripHtml(post.content || '').slice(0, 3000),
     }
   })
