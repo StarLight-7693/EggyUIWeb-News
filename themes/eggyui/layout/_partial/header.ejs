@@ -16,10 +16,11 @@
 
   <!-- 导航：首页/下载/关于指向主站(eggyui)；新闻指向本站 -->
   <ul class="nav-links" id="navLinks" role="navigation">
-    <li><a href="<%- main + '/' %>">首页</a></li>
-    <li><a href="<%- main + '/download' %>">下载</a></li>
-    <li><a href="/" class="active">新闻</a></li>
-    <li><a href="<%- main + '/about' %>">关于</a></li>
+    <!-- 使用target="_self"来实现无缝跳转 -->
+    <li><a href="<%- main + '/' %>" target="_self">首页</a></li>
+    <li><a href="<%- main + '/download' %>" target="_self">下载</a></li>
+    <li><a href="/" class="active" target="_self">新闻</a></li>
+    <li><a href="<%- main + '/about' %>" target="_self">关于</a></li>
   </ul>
 
   <!-- 右侧操作：搜索（本站本地搜索）+ 开始使用（主站下载） -->

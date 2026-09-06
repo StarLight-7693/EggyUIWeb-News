@@ -9,10 +9,11 @@
       <span class="footer-copy">© EggyUI · 本站为粉丝二次创作，非商业用途</span>
     </div>
     <div class="footer-links">
-      <a href="<%- main + '/' %>">主站首页</a>
-      <a href="<%- main + '/download' %>">下载</a>
-      <a href="<%- news + '/' %>">新闻</a>
-      <a href="<%- main + '/about' %>">关于</a>
+      <!-- 使用target="_self"来实现无缝跳转 -->
+      <a href="<%- main + '/' %>" target="_self">主站首页</a>
+      <a href="<%- main + '/download' %>" target="_self">下载</a>
+      <a href="/" target="_self">新闻</a>
+      <a href="<%- main + '/about' %>" target="_self">关于</a>
     </div>
     <div class="footer-ext">
       <% if (theme.rss !== false) { %><a href="<%- url_for('atom.xml') %>">RSS</a><% } %>
