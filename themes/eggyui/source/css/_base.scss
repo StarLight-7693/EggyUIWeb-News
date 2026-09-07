@@ -20,7 +20,8 @@ body {
   color: $ink;
   // 背景色作为基底（会向 canvas 传播），背景图改由 body::before 伪元素嵌入，
   // 对齐 StarLight-7693_blog / StarLight-7693.github.io.react 的设定
-  background-color: #f1ece2;
+  // 这里颜色暂时不使用#F1ECE2
+  background-color: #0E131D;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   // 为固定顶栏预留顶部空间
@@ -31,6 +32,7 @@ body {
     position: fixed;
     inset: 0;
     background: url($bg-cover) center/cover no-repeat;
+    opacity: 0.8;
     z-index: -1;
     pointer-events: none;
   }
