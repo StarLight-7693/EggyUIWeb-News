@@ -4,36 +4,43 @@
  * 无后端依赖。
  * ============================================================ */
 (function () {
-  'use strict'
+  'use strict';
 
-  var params = new URLSearchParams(window.location.search)
-  var q = (params.get('q') || '').trim()
+  var params = new URLSearchParams(window.location.search);
+  var q = (params.get('q') || '').trim();
 
-  var input = document.getElementById('searchPageInput')
-  if (input) input.value = q
+  var input = document.getElementById('searchPageInput');
+  if (input) {
+    input.value = q;
+  }
+  var statsEl = document.getElementById('searchStats');
+  var listEl = document.getElementById('searchResults');
 
-  var statsEl = document.getElementById('searchStats')
-  var listEl = document.getElementById('searchResults')
-
-  if (!statsEl || !listEl) return
+  if (!statsEl || !listEl) {
+    return;
+  }
 
   function escapeHtml(s) {
     return String(s)
       .replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
+      .replace(/"/g, '&quot;');
   }
 
   function escapeAttr(s) {
-    return escapeHtml(s).replace(/'/g, '&#39;')
+    return escapeHtml(s).replace(/'/g, '&#39;');
   }
 
   // 封面：缺省用 default_cover；相对路径统一补站点根
   function coverOf(c) {
-    if (!c) return '/images/default_cover.png'
-    if (/^(?:\/|https?:|data:)/i.test(c)) return c
-    return '/' + c
+    if (!c) {
+      return '/images/default_cover.png';
+    }
+    if (/^(?:\/|https?:|data:)/i.test(c)) {
+      return c;
+    }
+    return '/' + c;
   }
 
   function cardMarkup(p) {
@@ -52,43 +59,43 @@
       '</svg>' +
       '</div>' +
       '</a>'
-    )
+    );
   }
 
   if (!q) {
-    statsEl.textContent = '输入关键词开始搜索新闻。'
-    return
+    statsEl.textContent = '输入关键词开始搜索新闻。';
+    return;
   }
 
-  var tokens = q.toLowerCase().split(/\s+/).filter(Boolean)
+  var tokens = q.toLowerCase().split(/\s+/).filter(Boolean);
 
   function match(text) {
-    var lower = (text || '').toLowerCase()
-    return tokens.every(function (t) { return lower.indexOf(t) >= 0 })
+    var lower = (text || '').toLowerCase();
+    return tokens.every((t) => lower.indexOf(t) >= 0);
   }
 
   fetch('/search.json')
-    .then(function (res) {
-      if (!res.ok) throw new Error('HTTP ' + res.status)
-      return res.json()
+  .then((res) => {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      return res.json();
     })
     .then(function (data) {
-      var posts = data.posts || []
-      var hits = posts.filter(function (p) {
-        return match(p.title) || match(p.content) || match((p.tags || []).join(' '))
-      })
+      var posts = data.posts || [];
+      var hits = posts.filter((p) => {
+        return match(p.title) || match(p.content) || match((p.tags || []).join(' '));
+      });
 
       if (hits.length === 0) {
-        statsEl.textContent = '未找到与“' + q + '”相关的新闻。'
-        listEl.innerHTML = '<p class="empty-state">未找到相关新闻</p>'
-        return
+        statsEl.textContent = '未找到与“' + q + '”相关的新闻。';
+        listEl.innerHTML = '<p class="empty-state">未找到相关新闻</p>';
+        return;
       }
 
-      statsEl.textContent = '找到 ' + hits.length + ' 条与“' + q + '”相关的结果'
-      listEl.innerHTML = hits.map(cardMarkup).join('')
+      statsEl.textContent = '找到 ' + hits.length + ' 条与“' + q + '”相关的结果';
+      listEl.innerHTML = hits.map(cardMarkup).join('');
     })
     .catch(function (err) {
-      statsEl.textContent = '搜索索引加载失败，请稍后重试。'
-      console.error('搜索失败:', err)
+      statsEl.textContent = '搜索索引加载失败，请稍后重试。';
+      console.error('搜索失败:', err);
     })
-})()
+})();
