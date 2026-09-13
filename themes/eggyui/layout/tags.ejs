@@ -1,8 +1,11 @@
 <%
-  var items = site.tags || []
+  var items = site.tags || [];
   function each(cb) {
-    if (items && typeof items.each === 'function') items.each(cb)
-    else if (Array.isArray(items)) items.forEach(cb)
+    if (items && typeof items.each === 'function') {
+      items.each(cb);
+    } else if (Array.isArray(items)) {
+      items.forEach(cb);
+    }
   }
 %>
 <div class="page news-home">
@@ -17,12 +20,12 @@
       </nav>
     </div>
     <div class="chip-cloud">
-      <% each(function (item) { %>
+      <% each((item) => { %>
         <a class="cloud-chip" href="<%- url_for(item.path) %>">
           <span class="cloud-name"><%= item.name %></span>
           <span class="cloud-count"><%= item.posts.length %></span>
         </a>
-      <% }) %>
+      <% }); %>
     </div>
   </div>
 </div>

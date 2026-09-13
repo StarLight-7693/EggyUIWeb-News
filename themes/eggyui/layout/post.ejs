@@ -4,14 +4,14 @@
   <div class="post-meta">
     <time datetime="<%= date(page.date, 'YYYY-MM-DD') %>"><%= date(page.date, config.date_format) %></time>
     <% if (page.categories && page.categories.length) { %>
-      <% page.categories.each(function (c) { %>
+      <% page.categories.each((c) => { %>
         <a class="tag" href="<%- url_for(c.path) %>"><%= c.name %></a>
-      <% }) %>
+      <% }); %>
     <% } %>
     <% if (page.tags && page.tags.length) { %>
-      <% page.tags.each(function (t) { %>
+      <% page.tags.each((t) => { %>
         <a class="tag" href="<%- url_for(t.path) %>">#<%= t.name %></a>
-      <% }) %>
+      <% }); %>
     <% } %>
   </div>
   <div class="post-content"><%- page.content %></div>

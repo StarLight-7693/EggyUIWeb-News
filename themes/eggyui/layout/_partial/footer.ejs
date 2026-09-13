@@ -1,6 +1,6 @@
 <%
-  var main = String(theme.main_url || '').replace(/\/+$/, '')
-  var news = String(theme.news_url || '').replace(/\/+$/, '')
+  var main = String(theme.main_url || '').replace(/\/+$/, '');
+  var news = String(theme.news_url || '').replace(/\/+$/, '');
 %>
 <footer class="site-footer">
   <div class="footer-inner">
@@ -17,9 +17,9 @@
     </div>
     <div class="footer-ext">
       <% if (theme.sociallinks) { %>
-        <% Object.keys(theme.sociallinks).forEach(function(key) { %>
+        <% Object.keys(theme.sociallinks).forEach((key) => { %>
           <a href="<%- url_for(theme.sociallinks[key]) %>" target="_blank"><%= key %></a>
-        <% }) %>
+        <% }); %>
       <% } %>
     </div>
   </div>

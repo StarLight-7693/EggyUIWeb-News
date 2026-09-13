@@ -1,21 +1,25 @@
 <%
   // 共享卡片网格：与主页 index 展示完全一致
   // 用法：partial('_partial/card-grid', { listPosts: page.posts })
-  var posts = (typeof listPosts !== 'undefined') ? listPosts : []
-  var defaultCover = url_for(theme.default_cover || 'images/default_cover.png')
-  var emptyText = (typeof listEmptyText !== 'undefined') ? listEmptyText : '暂无内容'
+  var posts = (typeof listPosts !== 'undefined') ? listPosts : [];
+  var defaultCover = url_for(theme.default_cover || 'images/default_cover.png');
+  var emptyText = (typeof listEmptyText !== 'undefined') ? listEmptyText : '暂无内容';
 %>
 <div class="card-grid">
   <%
     function eachPost(cb) {
-      if (posts && typeof posts.each === 'function') posts.each(cb)
-      else if (Array.isArray(posts)) posts.forEach(cb)
+      if (posts && typeof posts.each === 'function') {
+        posts.each(cb);
+      } else if (Array.isArray(posts)) {
+        posts.forEach(cb);
+      }
     }
-    var hasAny = false
-    eachPost(function () { hasAny = true })
-    if (!hasAny) { %><p class="empty-state"><%= emptyText %></p><% }
-    else {
-      eachPost(function (post) {
+    var hasAny = false;
+    eachPost(() => { hasAny = true; });
+    if (!hasAny) {
+  %><p class="empty-state"><%= emptyText %></p><%
+    } else {
+      eachPost((post) => {
   %>
     <a class="card" href="<%- url_for(post.path) %>">
       <div class="card-cover">
@@ -32,5 +36,5 @@
         </svg>
       </div>
     </a>
-  <% }) } %>
+  <% }); } %>
 </div>

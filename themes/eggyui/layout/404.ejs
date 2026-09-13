@@ -14,15 +14,17 @@
 </div>
 <script>
   (function () {
-    var n = 5
-    var el = document.getElementById('nfCount')
-    var timer = setInterval(function () {
-      n -= 1
-      if (el) el.textContent = n
-      if (n <= 0) {
-        clearInterval(timer)
-        window.location.replace('/')
+    var n = 5;
+    var el = document.getElementById('nfCount');
+    var timer = setInterval(() => {
+      n -= 1;
+      if (el) {
+        el.textContent = n;
       }
-    }, 1000)
-  })()
+      if (n <= 0) {
+        clearInterval(timer);
+        window.location.replace('/');
+      }
+    }, 1000);
+  })();
 </script>
