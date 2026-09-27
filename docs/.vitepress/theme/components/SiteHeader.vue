@@ -141,7 +141,7 @@ onBeforeUnmount(() => {
     <div class="actions">
       <form class="search-form" role="search" @submit.prevent="submitSearch">
         <span class="search-icon" role="button" aria-label="搜索新闻" @click="submitSearch">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <circle cx="11" cy="11" r="8" />
             <line x1="21" y1="21" x2="16.65" y2="16.65" />
           </svg>
