@@ -3,10 +3,9 @@ import { withBase } from 'vitepress';
 
 // 首页 / 列表页共用的快捷入口（对齐原 index.ejs 的 chips）
 const chips = [
-  { label: '归档', href: '/archives/', external: false },
-  { label: '分类', href: '/categories/', external: false },
-  { label: '标签', href: '/tags/', external: false },
-  { label: 'RSS', href: '/atom.xml', external: true },
+  { label: '归档', href: '/archives/' },
+  { label: '分类', href: '/categories/' },
+  { label: '标签', href: '/tags/' }
 ];
 </script>
 
@@ -17,8 +16,7 @@ const chips = [
       :key="chip.label"
       class="chip"
       :href="withBase(chip.href)"
-      :target="chip.external ? '_blank' : '_self'"
-      >{{ chip.label }}</a
-    >
+      >{{ chip.label }}</a>
+    <a class="chip" href="/atom.xml" target="_blank">RSS</a>
   </nav>
 </template>

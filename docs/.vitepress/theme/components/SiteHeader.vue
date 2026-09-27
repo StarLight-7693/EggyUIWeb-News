@@ -133,7 +133,7 @@ onBeforeUnmount(() => {
     <ul class="nav-links" :class="{ open: navOpen }" role="navigation">
       <li><a :href="main + '/'" target="_self">首页</a></li>
       <li><a :href="main + '/download'" target="_self">下载</a></li>
-      <li><a :href="withBase('/')" class="active" target="_self">新闻</a></li>
+      <li><a :href="withBase('/')" class="active">新闻</a></li>
       <li><a :href="main + '/about'" target="_self">关于</a></li>
     </ul>
 
