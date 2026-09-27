@@ -1,0 +1,52 @@
+// ============================================================
+// EggyUI 新闻 · SCSS 设计变量
+// 与主项目 EggyUIWeb-Vue3 的 _variables 保持同一套品牌色（暖黄/橙体系）
+// ============================================================
+
+// 字体（CDN 引入：fonts.cdnfonts.com/css/segoe-pro + Noto Sans SC）
+$font-ui: 'Segoe Pro Display', 'Segoe Pro', 'Segoe UI', 'Noto Sans SC',
+  'Microsoft YaHei', system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+$font-brand: $font-ui;
+
+// 新闻页背景图（public/images）
+$bg-cover: '/images/news_bg.webp';
+
+// ---- 新闻配色 ----
+$ink: #1d2129;
+$muted: #4e5969;
+$faint: #86909c;
+$accent: #ff9f1a; // 主橙
+$accent-2: #ffc53d; // 主黄
+$card-bg: rgba(255, 255, 255, 0.85);
+$card-bg-hover: rgba(255, 255, 255, 0.96);
+
+// ---- 顶栏（与主站一致）----
+$hdr-bg: rgba(255, 255, 255, 0.75);
+$hdr-bg-scrolled: rgba(255, 255, 255, 0.92);
+$hdr-text: #1d2129;
+$hdr-muted: #4e5969;
+$hdr-faint: #86909c;
+$hdr-indigo: #ff9f1a; // 强调橙（焦点/边框/阴影）
+$hdr-violet: #ffc53d; // 主黄
+$hdr-pink: #ff7a00; // 次强调橙
+$hdr-btn-grad: linear-gradient(135deg, #ffc53d, #ff9f1a);
+$hdr-load-grad: linear-gradient(90deg, #ffc53d, #ff9f1a, #ff7a00);
+
+// ---- 圆角 / 阴影 ----
+$radius-card: 22px;
+$shadow-card: 0 4px 12px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+$shadow-float: 0 8px 40px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.05);
+
+// ---- 尺寸 / 断点 ----
+$header-h: 72px;
+$header-h-md: 64px;
+$header-h-xs: 60px;
+$container-max: 960px;
+
+$bp-lg: 1024px;
+$bp-md: 820px;
+$bp-sm: 768px;
+$bp-xs: 640px;
+$bp-2xs: 600px;
+$bp-3xs: 500px;
+$bp-4xs: 400px;

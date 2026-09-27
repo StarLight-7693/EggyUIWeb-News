@@ -1,0 +1,62 @@
+@use 'variables' as *;
+
+// ============================================================
+// 全局基础（仅整站引入一次：styles/index.scss）
+// ============================================================
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font-brand;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  color: $ink;
+  // 背景色作为基底（会向 canvas 传播），背景图由 body::before 伪元素嵌入
+  background-color: #f1ece2;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  // 为固定顶栏预留顶部空间
+  padding: 84px 20px 56px;
+
+  &::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: url($bg-cover) center/cover no-repeat;
+    z-index: -1;
+    pointer-events: none;
+  }
+}
+
+// SVG 全局对齐修复（原站惯例）
+svg {
+  vertical-align: middle;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+// 滚动条
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.04);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.18);
+  border-radius: 8px;
+}
+
+// 通用旋转动画（多处复用）
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

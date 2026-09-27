@@ -1,26 +1,21 @@
 {
-  "name": "hexo-site",
-  "version": "0.0.0",
+  "name": "eggyuiweb-news-vuepress",
   "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "build": "hexo generate",
-    "clean": "hexo clean",
-    "deploy": "hexo deploy",
-    "server": "hexo server"
-  },
-  "hexo": {
-    "version": "8.1.2"
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs"
   },
   "dependencies": {
-    "hexo": "^8.0.0",
-    "hexo-generator-archive": "^2.0.0",
-    "hexo-generator-category": "^2.0.0",
-    "hexo-generator-feed": "^4.0.0",
-    "hexo-generator-index": "^4.0.0",
-    "hexo-generator-tag": "^2.0.0",
-    "hexo-renderer-dartsass": "^1.2.0",
-    "hexo-renderer-ejs": "^2.0.0",
-    "hexo-renderer-marked": "^7.0.0",
-    "hexo-server": "^3.0.0"
+    "vue": "^3.5.41"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "gray-matter": "^4.0.3",
+    "sass": "^1.104.0",
+    "typescript": "~6.0.2",
+    "vitepress": "^1.6.4"
   }
 }

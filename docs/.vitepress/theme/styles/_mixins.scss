@@ -1,0 +1,33 @@
+@use 'variables' as *;
+
+// ============================================================
+// 通用 Mixin（与主项目 EggyUIWeb-Vue3 对齐）
+// ============================================================
+
+/// 低于某断点（max-width 响应式）
+@mixin respond-below($bp) {
+  @media (max-width: $bp) {
+    @content;
+  }
+}
+
+/// 高于某断点（min-width 响应式）
+@mixin respond-above($bp) {
+  @media (min-width: $bp) {
+    @content;
+  }
+}
+
+/// 毛玻璃效果
+@mixin glass($bg: $hdr-bg, $blur: 20px, $saturate: 1.4) {
+  background: $bg;
+  backdrop-filter: blur($blur) saturate($saturate);
+  -webkit-backdrop-filter: blur($blur) saturate($saturate);
+}
+
+/// 垂直/水平居中
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
