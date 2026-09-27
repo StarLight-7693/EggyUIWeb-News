@@ -15,6 +15,15 @@ export interface PagedPosts {
 }
 
 /**
+ * 置顶优先排序：stickypost 为 true 的文章整体前移。
+ * Array#sort 是稳定排序，因此置顶组内部与其余文章都保持原有的时间倒序。
+ * 仅用于按时间倒序的列表页（首页 / 分类 / 标签）；归档时间轴与搜索结果按原顺序展示。
+ */
+export function pinnedFirst(posts: Post[]): Post[] {
+  return [...posts].sort((a, b) => Number(b.stickypost) - Number(a.stickypost));
+}
+
+/**
  * 列表分页组合式函数。
  * @param getCurrent 当前页取值函数（响应式）
  * @param getSource  数据集取值函数，默认全部文章（分类/标签页可传入过滤后的集合）

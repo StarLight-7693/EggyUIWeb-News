@@ -28,6 +28,8 @@ export default createContentLoader('posts/*.md', {
           url: page.url,
           date: formatDate(frontmatter.date),
           timestamp: new Date(frontmatter.date).getTime() || 0,
+          // 未指定或非 true 一律视为不置顶
+          stickypost: frontmatter.stickypost === true,
           categories: toArray(frontmatter.categories),
           tags: toArray(frontmatter.tags),
           cover: frontmatter.cover || '/images/default_cover.png',

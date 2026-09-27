@@ -17,6 +17,7 @@ const coverSrc = computed(() => {
 <template>
   <a class="card" :href="withBase(post.url)">
     <div class="card-cover">
+      <span v-if="post.stickypost" class="pin-badge">置顶</span>
       <img :src="coverSrc" :alt="post.title" loading="lazy" />
     </div>
     <div class="card-body">

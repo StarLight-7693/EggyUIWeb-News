@@ -8,6 +8,8 @@ export interface Post {
   date: string;
   /** 排序用时间戳 */
   timestamp: number;
+  /** 是否置顶（来自 frontmatter.stickypost；未指定或非 true 视为 false） */
+  stickypost: boolean;
   /** 分类名列表 */
   categories: string[];
   /** 标签名列表 */
