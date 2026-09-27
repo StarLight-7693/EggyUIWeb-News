@@ -83,7 +83,12 @@
     }
   }
 
-  // 导航
+  // 导航（<nav> 包裹 <ul>，语义化地标同时保留原 flex 布局）
+  .main-nav {
+    display: flex;
+    align-items: center;
+  }
+
   .nav-links {
     display: flex;
     align-items: center;

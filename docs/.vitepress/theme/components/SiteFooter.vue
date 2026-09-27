@@ -19,7 +19,7 @@ const socialLinks = Object.entries(SOCIAL_LINKS).map(([label, href]) => ({
 </script>
 
 <template>
-  <footer class="site-footer">
+  <footer class="site-footer" role="contentinfo">
     <div class="footer-inner">
       <div class="footer-brand">
         <span class="brand-text">{{ SITE.brand }}</span>

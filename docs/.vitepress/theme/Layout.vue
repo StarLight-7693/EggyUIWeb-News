@@ -36,15 +36,18 @@ const tagName = computed(() => decodeParam(params.value?.tag));
 <template>
   <SiteHeader />
 
-  <NotFoundView v-if="page.isNotFound" />
-  <HomeView v-else-if="layout === 'home'" :page="currentPage" />
-  <ArchiveView v-else-if="layout === 'archive'" :page="currentPage" />
-  <CategoryIndexView v-else-if="layout === 'category-index'" />
-  <CategoryView v-else-if="layout === 'category'" :name="categoryName" :page="currentPage" />
-  <TagIndexView v-else-if="layout === 'tag-index'" />
-  <TagView v-else-if="layout === 'tag'" :name="tagName" :page="currentPage" />
-  <SearchView v-else-if="layout === 'search'" />
-  <PostView v-else />
+  <!-- 主内容地标：浏览器阅读模式据此定位正文，忽略顶栏/页脚等噪声 -->
+  <main id="content" class="site-main" role="main">
+    <NotFoundView v-if="page.isNotFound" />
+    <HomeView v-else-if="layout === 'home'" :page="currentPage" />
+    <ArchiveView v-else-if="layout === 'archive'" :page="currentPage" />
+    <CategoryIndexView v-else-if="layout === 'category-index'" />
+    <CategoryView v-else-if="layout === 'category'" :name="categoryName" :page="currentPage" />
+    <TagIndexView v-else-if="layout === 'tag-index'" />
+    <TagView v-else-if="layout === 'tag'" :name="tagName" :page="currentPage" />
+    <SearchView v-else-if="layout === 'search'" />
+    <PostView v-else />
+  </main>
 
   <SiteFooter />
 </template>

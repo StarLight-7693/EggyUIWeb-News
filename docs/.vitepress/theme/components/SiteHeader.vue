@@ -130,12 +130,14 @@ onBeforeUnmount(() => {
     </a>
 
     <!-- 导航：首页/下载/关于指向主站，新闻指向本站（target=_self 实现无缝跳转） -->
-    <ul class="nav-links" :class="{ open: navOpen }" role="navigation">
-      <li><a :href="main + '/'" target="_self">首页</a></li>
-      <li><a :href="main + '/download'" target="_self">下载</a></li>
-      <li><a :href="withBase('/')" class="active">新闻</a></li>
-      <li><a :href="main + '/about'" target="_self">关于</a></li>
-    </ul>
+    <nav class="main-nav" aria-label="主导航">
+      <ul class="nav-links" :class="{ open: navOpen }">
+        <li><a :href="main + '/'" target="_self">首页</a></li>
+        <li><a :href="main + '/download'" target="_self">下载</a></li>
+        <li><a :href="withBase('/')" class="active" aria-current="page">新闻</a></li>
+        <li><a :href="main + '/about'" target="_self">关于</a></li>
+      </ul>
+    </nav>
 
     <!-- 右侧操作：本站搜索 + 开始使用（主站下载） -->
     <div class="actions">
