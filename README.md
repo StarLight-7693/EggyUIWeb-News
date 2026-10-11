@@ -4,7 +4,7 @@
 ![License](https://img.shields.io/badge/License-AGPL--3.0-orange)
 ![Deploy](https://img.shields.io/badge/Deploy-GitHub%20Pages-222222)
 
-> [!INFO]
+> [!NOTE]
 >
 > 本仓库将在 EggyUI 官网于 2026 年 10 月 14 日关闭后归档。
 
