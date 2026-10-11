@@ -4,6 +4,10 @@
 ![License](https://img.shields.io/badge/License-AGPL--3.0-orange)
 ![Deploy](https://img.shields.io/badge/Deploy-GitHub%20Pages-222222)
 
+> [!INFO]
+>
+> 本仓库将在 EggyUI 官网于 2026 年 10 月 14 日关闭后归档。
+
 ## 项目简介
 
 EggyUIWeb-News 是 EggyUI 官网的新闻站部分，负责承载 EggyUI 项目的新闻发布、公告通知、版本更新日志与博客内容等功能。作为官网的新闻站，它是用户获取 EggyUI 最新动态、了解项目进展的主要渠道。
