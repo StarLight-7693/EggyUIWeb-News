@@ -7,6 +7,8 @@
 > [!NOTE]
 >
 > 本仓库将在 EggyUI 官网于 2026 年 10 月 14 日关闭后归档。
+>
+> 如需了解后续更多信息，请访问 [PidanUI 官网](https://pidanui.eggycore.top)。
 
 ## 项目简介
 
